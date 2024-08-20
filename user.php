@@ -2,27 +2,21 @@
 if(isset($_POST['submit'])){
     $con=mysqli_connect('localhost','root','','test1');
     if(!$con){
-      die(mysqli_error($con));
-    }
-    else{
-     // echo "Connected suuccssfully";
+        die(mysqli_error($con));
     }
     $name=$_POST['name'];
     $mail=$_POST['mail'];
     $message=$_POST['msg'];
 
-    $qry="Insert into `test`(`name`,`email`,message) values('$name','$mail','$message')";
+    $qry="INSERT INTO `test`(`name`, `email`, `message`) VALUES ('$name','$mail','$message')";
     $res=mysqli_query($con,$qry);
 
     if($res){
-        //echo("Record inserted successfully");
         header('location:user.php');
-    }
-    else{
-        die(mysqli_error($res));
+    } else {
+        die(mysqli_error($con));
     }
 }
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,29 +24,31 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container lg md-6">
-        <form class="form" method="post">
-            <h4 class="mt-3 text-center">Submission Form</h4>
-            <div>
-                <label>Name:</label>
-                <input class="ml-3 mt-3" type="text" name="name" autocomplete="off" placeholder="Enter your Name: " required>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <form class="form mt-5" method="post">
+                    <h4 class="text-center">Submission Form</h4>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input id="name" class="form-control" type="text" name="name" autocomplete="off" placeholder="Enter your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Email:</label>
+                        <input id="mail" class="form-control" type="email" name="mail" autocomplete="off" placeholder="Enter your Email" required>
+                    </div> 
+                    <div class="form-group">
+                        <label for="msg">Message:</label>
+                        <textarea id="msg" class="form-control" name="msg" autocomplete="off" placeholder="Enter here"></textarea>
+                    </div>  
+                    <button class="btn btn-primary btn-block" name="submit">Submit</button>    
+                </form>
             </div>
-            <div>
-                <label>Email:</label>
-                <input class="ml-3 mt-3" type="email" name="mail" autocomplete="off" placeholder="Enter your Email: " required>
-            </div> 
-            <div>
-                <label>Message:</label>
-                <textarea class="ml-3 mt-3" autocomplete="off" placeholder="Enter here: " name="msg"></textarea>
-            </div>  
-            <button class="btn bg-primary ml-5 my-3" name="submit">Submit</button>    
-        </form>
-        
+        </div>
     </div>
-    
 </body>
 </html>
