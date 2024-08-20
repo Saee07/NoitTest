@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="col-lg col-md-8 col-sm-10">
                 <form class="form mt-5" method="post">
                     <h4 class="text-center">Submission Form</h4>
                     <div class="form-group">
