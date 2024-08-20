@@ -39,15 +39,15 @@ if(isset($_POST['submit'])){
             <h4 class="mt-3 text-center">Submission Form</h4>
             <div>
                 <label>Name:</label>
-                <input class="ml-3 mt-3" type="text" name="name" placeholder="Enter your Name: " required>
+                <input class="ml-3 mt-3" type="text" name="name" autocomplete="off" placeholder="Enter your Name: " required>
             </div>
             <div>
                 <label>Email:</label>
-                <input class="ml-3 mt-3" type="email" name="mail" placeholder="Enter your Email: " required>
+                <input class="ml-3 mt-3" type="email" name="mail" autocomplete="off" placeholder="Enter your Email: " required>
             </div> 
             <div>
                 <label>Message:</label>
-                <textarea class="ml-3 mt-3" placeholder="Enter here: " name="msg"></textarea>
+                <textarea class="ml-3 mt-3" autocomplete="off" placeholder="Enter here: " name="msg"></textarea>
             </div>  
             <button class="btn bg-primary ml-5 my-3" name="submit">Submit</button>    
         </form>
